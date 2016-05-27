@@ -1,0 +1,65 @@
+/*
+ * Copyright 2015 TripleD Fisetin.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *       http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+ dependencies {
+   compile('joda-time:joda-time:2.9.3')
+   compile('com.fasterxml.jackson.core:jackson-databind:2.7.4')
+ }
+
+uploadArchives {
+  repositories {
+    if (isDevBuild) {
+      mavenLocal()
+    } else if (isReleaseBuild || isCiBuild) {
+      mavenDeployer {
+        if (isReleaseBuild) {
+          beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+        }
+
+        repository(url: sonatypeRepositoryUrl) {
+          authentication(userName: sonatypeUsername, password: sonatypePassword)
+        }
+
+        pom.project {
+          name 'TripleD Fisetin'
+          packaging 'jar'
+          description 'Fisetin is an application to generate pretty cucumber reports'
+          url 'http://www.tripled.io/'
+
+          scm {
+            url 'scm:git@github.com:domenique/tripled-framework.git'
+            connection 'scm:git@github.com:domenique/tripled-framework.git'
+            developerConnection 'scm:git@github.com:domenique/tripled-framework.git'
+          }
+
+          licenses {
+            license {
+              name 'The Apache Software License, Version 2.0'
+              url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+              distribution 'repo'
+            }
+          }
+
+          developers {
+            developer {
+              id 'domenique'
+              name 'Domenique Tilleuil'
+            }
+          }
+        }
+      }
+    }
+  }
+}
