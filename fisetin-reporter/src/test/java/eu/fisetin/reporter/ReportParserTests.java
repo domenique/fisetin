@@ -44,6 +44,83 @@ public class ReportParserTests {
     assertSecondFeature(features.get(1));
   }
 
+  @Test
+  public void canHandleCells() throws IOException {
+    ReportParser reportParser = new ReportParser(toAbsolutePath("cucumber/cells.json"));
+
+    reportParser.parse();
+  }
+
+  @Test
+  public void canHandleDocString() throws IOException {
+    ReportParser reportParser = new ReportParser(toAbsolutePath("cucumber/docstring.json"));
+
+    reportParser.parse();
+  }
+
+  @Test
+  public void canHandleEmbeddedImage() throws IOException {
+    ReportParser reportParser = new ReportParser(toAbsolutePath("cucumber/embedded_image.json"));
+
+    reportParser.parse();
+  }
+
+  @Test
+  public void canHandleNoScenario() throws IOException {
+    ReportParser reportParser = new ReportParser(toAbsolutePath("cucumber/noscenario.json"));
+
+    reportParser.parse();
+  }
+
+  @Test
+  public void canHandleNoSteps() throws IOException {
+    ReportParser reportParser = new ReportParser(toAbsolutePath("cucumber/nosteps.json"));
+
+    reportParser.parse();
+  }
+
+  @Test
+  public void canHandleNoSteps2() throws IOException {
+    ReportParser reportParser = new ReportParser(toAbsolutePath("cucumber/nosteps2.json"));
+
+    reportParser.parse();
+  }
+
+  @Test
+  public void canHandleProject1() throws IOException {
+    ReportParser reportParser = new ReportParser(toAbsolutePath("cucumber/project1.json"));
+
+    reportParser.parse();
+  }
+
+  @Test
+  public void canHandleProject2() throws IOException {
+    ReportParser reportParser = new ReportParser(toAbsolutePath("cucumber/project2.json"));
+
+    reportParser.parse();
+  }
+
+  @Test
+  public void canHandleProject3() throws IOException {
+    ReportParser reportParser = new ReportParser(toAbsolutePath("cucumber/project3.json"));
+
+    reportParser.parse();
+  }
+
+  @Test
+  public void canHandleStatuses() throws IOException {
+    ReportParser reportParser = new ReportParser(toAbsolutePath("cucumber/statuses.json"));
+
+    reportParser.parse();
+  }
+
+  @Test
+  public void canHandleTags() throws IOException {
+    ReportParser reportParser = new ReportParser(toAbsolutePath("cucumber/tags.json"));
+
+    reportParser.parse();
+  }
+
   private String toAbsolutePath(String resource) {
     try {
       return new File(ReportParserTests.class.getClassLoader().getResource(resource).toURI()).getAbsolutePath();
