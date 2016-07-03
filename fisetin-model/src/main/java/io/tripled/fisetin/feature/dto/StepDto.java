@@ -1,21 +1,21 @@
-package io.tripled.fisetin.model;
+package io.tripled.fisetin.feature.dto;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
 import java.util.List;
 
-public class Step {
+public class StepDto {
 
   private String name;
   private  String keyword;
   private String line;
-  private Result result;
-  private List<Row> rows;
-  private Match match = null;
-  private List<Embedding> embeddings;
+  private ResultDto result;
+  private List<RowDto> rows;
+  private MatchDto match = null;
+  private List<EmbeddingDto> embeddings;
   private List<Integer> matchedColumns;
   private JsonNode[] output;
-  private DocString doc_string;
+  private DocStringDto doc_string;
 
   public String getName() {
     return name;
@@ -29,19 +29,19 @@ public class Step {
     return line;
   }
 
-  public Result getResult() {
+  public ResultDto getResult() {
     return result;
   }
 
-  public List<Row> getRows() {
+  public List<RowDto> getRows() {
     return rows;
   }
 
-  public Match getMatch() {
+  public MatchDto getMatch() {
     return match;
   }
 
-  public List<Embedding> getEmbeddings() {
+  public List<EmbeddingDto> getEmbeddings() {
     return embeddings;
   }
 
@@ -53,7 +53,7 @@ public class Step {
     return output;
   }
 
-  public DocString getDoc_string() {
+  public DocStringDto getDoc_string() {
     return doc_string;
   }
 }

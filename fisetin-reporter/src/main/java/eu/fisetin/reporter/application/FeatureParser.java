@@ -2,13 +2,13 @@ package eu.fisetin.reporter.application;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonToken;
-import io.tripled.fisetin.model.Feature;
-import io.tripled.fisetin.model.Feature.FeatureBuilder;
+import io.tripled.fisetin.feature.dto.FeatureDto;
+import io.tripled.fisetin.feature.dto.FeatureDto.FeatureBuilder;
 
 import java.io.IOException;
 import java.util.Optional;
 
-public class FeatureParser implements Parser<Optional<Feature>> {
+public class FeatureParser implements Parser<Optional<FeatureDto>> {
   private FeatureBuilder featureFeatureBuilder;
   private final JsonParser jsonParser;
 
@@ -18,10 +18,10 @@ public class FeatureParser implements Parser<Optional<Feature>> {
 
   private FeatureParser(JsonParser jsonParser) {
     this.jsonParser = jsonParser;
-    this.featureFeatureBuilder = Feature.aFeature();
+    this.featureFeatureBuilder = FeatureDto.aFeature();
   }
 
-  public Optional<Feature> parse() throws IOException {
+  public Optional<FeatureDto> parse() throws IOException {
     jsonParser.nextToken();
     if (JsonToken.START_OBJECT.equals(jsonParser.getCurrentToken())) {
       jsonParser.nextToken();
@@ -66,6 +66,6 @@ public class FeatureParser implements Parser<Optional<Feature>> {
 
   @Override
   public boolean supports(Class<?> type) {
-    return Feature.class.isAssignableFrom(type);
+    return FeatureDto.class.isAssignableFrom(type);
   }
 }

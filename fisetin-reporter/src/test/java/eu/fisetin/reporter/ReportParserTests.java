@@ -1,7 +1,7 @@
 package eu.fisetin.reporter;
 
 import eu.fisetin.reporter.application.ReportParser;
-import io.tripled.fisetin.model.Feature;
+import io.tripled.fisetin.feature.dto.FeatureDto;
 import org.junit.Test;
 
 import java.io.File;
@@ -18,7 +18,7 @@ public class ReportParserTests {
   public void canLoadEmptyReport() throws IOException {
     ReportParser reportParser = new ReportParser(toAbsolutePath("json/empty.json"));
 
-    List<Feature> features = reportParser.parse();
+    List<FeatureDto> features = reportParser.parse();
 
     assertThat(features, empty());
   }
@@ -27,7 +27,7 @@ public class ReportParserTests {
   public void canLoadSampleReportContainingOneFeature() throws IOException {
     ReportParser reportParser = new ReportParser(toAbsolutePath("json/sampleWithOneFeature.json"));
 
-    List<Feature> features = reportParser.parse();
+    List<FeatureDto> features = reportParser.parse();
 
     assertThat(features, hasSize(1));
     assertFirstFeature(features.get(0));
@@ -37,7 +37,7 @@ public class ReportParserTests {
   public void canLoadSampleReportContainingTwoFeatures() throws IOException {
     ReportParser reportParser = new ReportParser(toAbsolutePath("json/sampleWithTwoFeatures.json"));
 
-    List<Feature> features = reportParser.parse();
+    List<FeatureDto> features = reportParser.parse();
 
     assertThat(features, hasSize(2));
     assertFirstFeature(features.get(0));
@@ -129,7 +129,7 @@ public class ReportParserTests {
     }
   }
 
-  private void assertFirstFeature(Feature firstFeature) {
+  private void assertFirstFeature(FeatureDto firstFeature) {
     assertThat(firstFeature.getId(), equalTo("account-holder-withdraws-cash"));
     assertThat(firstFeature.getDescription(), equalTo("This is description of the feature"));
     assertThat(firstFeature.getName(), equalTo("1st feature"));
@@ -137,7 +137,7 @@ public class ReportParserTests {
     assertThat(firstFeature.getUri(), equalTo("net/masterthought/example(s)/ATM:local.feature"));
   }
 
-  private void assertSecondFeature(Feature secondFeature) {
+  private void assertSecondFeature(FeatureDto secondFeature) {
     assertThat(secondFeature.getId(), equalTo("account-holder-withdraws-more-cash"));
     assertThat(secondFeature
         .getDescription(), equalTo("As an Account Holder\nI want to withdraw cash from an ATM,<br>so that I can get money when the bank is closed"));

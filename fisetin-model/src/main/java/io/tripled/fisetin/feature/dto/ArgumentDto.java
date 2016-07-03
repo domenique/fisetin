@@ -1,6 +1,6 @@
-package io.tripled.fisetin.model;
+package io.tripled.fisetin.feature.dto;
 
-public class Argument {
+public class ArgumentDto {
 
   private String val;
   private int offset;

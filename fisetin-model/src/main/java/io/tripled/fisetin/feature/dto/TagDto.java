@@ -1,6 +1,6 @@
-package io.tripled.fisetin.model;
+package io.tripled.fisetin.feature.dto;
 
-public class Tag {
+public class TagDto {
 
   private String name;
   private String line;

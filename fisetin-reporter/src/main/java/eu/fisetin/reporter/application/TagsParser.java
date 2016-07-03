@@ -2,13 +2,13 @@ package eu.fisetin.reporter.application;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonToken;
-import io.tripled.fisetin.model.Tag;
+import io.tripled.fisetin.feature.dto.TagDto;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TagsParser implements Parser<List<Tag>> {
+public class TagsParser implements Parser<List<TagDto>> {
 
   private final JsonParser jsonParser;
 
@@ -21,19 +21,19 @@ public class TagsParser implements Parser<List<Tag>> {
   }
 
   @Override
-  public List<Tag> parse() throws IOException {
-    List<Tag> parsedTags = new ArrayList<>();
+  public List<TagDto> parse() throws IOException {
+    List<TagDto> parsedTags = new ArrayList<>();
     // we are at the fieldName
     jsonParser.nextToken();
     jsonParser.nextToken();
     if (JsonToken.START_OBJECT.equals(jsonParser.getCurrentToken())) {
-      jsonParser.readValuesAs(Tag.class).forEachRemaining(parsedTags::add);
+      jsonParser.readValuesAs(TagDto.class).forEachRemaining(parsedTags::add);
     }
     return parsedTags;
   }
 
   @Override
   public boolean supports(Class<?> type) {
-    return Tag.class.isAssignableFrom(type);
+    return TagDto.class.isAssignableFrom(type);
   }
 }

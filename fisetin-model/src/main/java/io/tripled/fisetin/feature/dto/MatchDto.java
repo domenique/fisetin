@@ -1,17 +1,17 @@
-package io.tripled.fisetin.model;
+package io.tripled.fisetin.feature.dto;
 
 import java.util.List;
 
-public class Match {
+public class MatchDto {
 
     private String location;
-    private List<Argument> arguments;
+    private List<ArgumentDto> arguments;
 
     public String getLocation() {
         return location;
     }
 
-    public List<Argument> getArguments() {
+    public List<ArgumentDto> getArguments() {
         return arguments;
     }
 }

@@ -3,7 +3,7 @@ package eu.fisetin.reporter.application;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonToken;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.tripled.fisetin.model.Feature;
+import io.tripled.fisetin.feature.dto.FeatureDto;
 
 import java.io.IOException;
 import java.nio.file.Paths;
@@ -19,8 +19,8 @@ public class ReportParser {
     jsonParser = new ObjectMapper().getFactory().createParser(Paths.get(absolutePath).toFile());
   }
 
-  public List<Feature> parse() throws IOException {
-    List<Feature> returnedFeatures = new ArrayList<>();
+  public List<FeatureDto> parse() throws IOException {
+    List<FeatureDto> returnedFeatures = new ArrayList<>();
     jsonParser.nextToken();
 
     if (JsonToken.START_ARRAY.equals(jsonParser.getCurrentToken())) {

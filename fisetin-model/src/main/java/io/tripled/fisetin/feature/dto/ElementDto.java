@@ -1,8 +1,8 @@
-package io.tripled.fisetin.model;
+package io.tripled.fisetin.feature.dto;
 
 import java.util.List;
 
-public class Element {
+public class ElementDto {
 
   private String id;
   private String name;
@@ -10,10 +10,10 @@ public class Element {
   private String description;
   private String keyword;
   private int line;
-  private List<Step> steps;
-  private List<Hook> before;
-  private List<Hook> after;
-  private List<Tag>tags;
+  private List<StepDto> steps;
+  private List<HookDto> before;
+  private List<HookDto> after;
+  private List<TagDto>tags;
 
   public String getId() {
     return id;
@@ -39,19 +39,19 @@ public class Element {
     return line;
   }
 
-  public List<Step> getSteps() {
+  public List<StepDto> getSteps() {
     return steps;
   }
 
-  public List<Hook> getBefore() {
+  public List<HookDto> getBefore() {
     return before;
   }
 
-  public List<Hook> getAfter() {
+  public List<HookDto> getAfter() {
     return after;
   }
 
-  public List<Tag> getTags() {
+  public List<TagDto> getTags() {
     return tags;
   }
 }

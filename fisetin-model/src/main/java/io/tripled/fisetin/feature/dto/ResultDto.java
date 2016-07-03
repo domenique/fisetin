@@ -1,7 +1,7 @@
-package io.tripled.fisetin.model;
+package io.tripled.fisetin.feature.dto;
 
 
-public class Result {
+public class ResultDto {
 
   private String status;
   private String error_message;

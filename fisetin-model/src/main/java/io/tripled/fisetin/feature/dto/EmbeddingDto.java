@@ -1,10 +1,10 @@
-package io.tripled.fisetin.model;
+package io.tripled.fisetin.feature.dto;
 
 
 import java.nio.charset.Charset;
 import java.util.Base64;
 
-public class Embedding {
+public class EmbeddingDto {
 
   private String mime_type;
   private String data;

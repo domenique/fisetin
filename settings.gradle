@@ -15,3 +15,4 @@
  */
 include 'fisetin-reporter'
 include 'fisetin-model'
+include 'fisetin-server'

@@ -1,8 +1,8 @@
-package io.tripled.fisetin.model;
+package io.tripled.fisetin.feature.dto;
 
 import java.util.List;
 
-public class Feature {
+public class FeatureDto {
 
   private final String id;
   private final String name;
@@ -10,14 +10,14 @@ public class Feature {
   private final String description;
   private final String keyword;
 
-  private final List<Element> elements;
-  private final List<Tag> tags;
+  private final List<ElementDto> elements;
+  private final List<TagDto> tags;
 
   public static FeatureBuilder aFeature() {
     return new FeatureBuilder();
   }
 
-  public Feature(String id, String name, String uri, String description, String keyword, List<Element> elements, List<Tag> tags) {
+  public FeatureDto(String id, String name, String uri, String description, String keyword, List<ElementDto> elements, List<TagDto> tags) {
     this.id = id;
     this.name = name;
     this.uri = uri;
@@ -47,11 +47,11 @@ public class Feature {
     return keyword;
   }
 
-  public List<Element> getElements() {
+  public List<ElementDto> getElements() {
     return elements;
   }
 
-  public List<Tag> getTags() {
+  public List<TagDto> getTags() {
     return tags;
   }
 
@@ -61,8 +61,8 @@ public class Feature {
     private String uri;
     private String description;
     private String keyword;
-    private List<Element> elements;
-    private List<Tag> tags;
+    private List<ElementDto> elements;
+    private List<TagDto> tags;
 
     private FeatureBuilder() {
     }
@@ -93,18 +93,18 @@ public class Feature {
       return this;
     }
 
-    public FeatureBuilder withElements(List<Element> elements) {
+    public FeatureBuilder withElements(List<ElementDto> elements) {
       this.elements = elements;
       return this;
     }
 
-    public FeatureBuilder withTags(List<Tag> tags) {
+    public FeatureBuilder withTags(List<TagDto> tags) {
       this.tags = tags;
       return this;
     }
 
-    public Feature build() {
-      return new Feature(id, name, uri, description, keyword, elements, tags);
+    public FeatureDto build() {
+      return new FeatureDto(id, name, uri, description, keyword, elements, tags);
     }
   }
 }

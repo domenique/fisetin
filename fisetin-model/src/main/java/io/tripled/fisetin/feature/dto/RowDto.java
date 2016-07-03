@@ -1,8 +1,8 @@
-package io.tripled.fisetin.model;
+package io.tripled.fisetin.feature.dto;
 
 import java.util.List;
 
-public class Row {
+public class RowDto {
 
     private List<String> cells;
     private String line;

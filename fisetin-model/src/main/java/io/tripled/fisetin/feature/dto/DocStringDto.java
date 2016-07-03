@@ -1,6 +1,6 @@
-package io.tripled.fisetin.model;
+package io.tripled.fisetin.feature.dto;
 
-public class DocString {
+public class DocStringDto {
 
   private String value;
   private String content_type;
