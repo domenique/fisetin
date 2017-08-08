@@ -14,9 +14,7 @@
  * limitations under the License.
  */
 
-apply plugin: 'propdeps'
-apply plugin: 'propdeps-idea'
-apply plugin: 'spring-boot'
+apply plugin: 'org.springframework.boot'
 
 compileJava.dependsOn(processResources)
 
@@ -51,9 +49,9 @@ uploadArchives {
           url 'http://www.tripled.io/'
 
           scm {
-            url 'scm:git@github.com:domenique/tripled-framework.git'
-            connection 'scm:git@github.com:domenique/tripled-framework.git'
-            developerConnection 'scm:git@github.com:domenique/tripled-framework.git'
+            url 'scm:git@github.com:domenique/fisetin.git'
+            connection 'scm:git@github.com:domenique/fisetin.git'
+            developerConnection 'scm:git@github.com:domenique/fisetin.git'
           }
 
           licenses {

@@ -39,9 +39,9 @@ uploadArchives {
           url 'http://www.tripled.io/'
 
           scm {
-            url 'scm:git@github.com:domenique/tripled-framework.git'
-            connection 'scm:git@github.com:domenique/tripled-framework.git'
-            developerConnection 'scm:git@github.com:domenique/tripled-framework.git'
+            url 'scm:git@github.com:domenique/fisetin.git'
+            connection 'scm:git@github.com:domenique/fisetin.git'
+            developerConnection 'scm:git@github.com:domenique/fisetin.git'
           }
 
           licenses {
